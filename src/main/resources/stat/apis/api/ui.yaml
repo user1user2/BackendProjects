@@ -1,0 +1,131 @@
+#openapi: 3.0.0
+#info:
+#  title: ServiceNow API
+#  version: 0.1.9
+#  description: We are creating swagger doc file
+#servers: 
+#   - url: http://localhost:8080
+#  
+#   - url: http://localhost:9430/
+openapi: 3.0.0
+info:
+  version: 3.0.0
+  title: Accessing ServiceNow Rest Api with external spring-Boot RestApi
+  description: This is related to Ldap Crud operation in spring boot framework
+  contact:
+    name: Rakehs
+    url: http://localhost:9090/sn
+    email: rakesh.reddy@gmail.com
+
+servers:
+  - url: http://localhost:8080/sn
+paths:
+   /:
+     get:
+       summary: Return a list of Records
+       description: calling the req from service now instance
+       responses:
+         '200':
+            description: A JSON array of user names
+            content:
+               application/json:
+                 schema:
+                   type: string
+                   items:
+                      type: string
+   /{val}:
+     put:
+       summary: changing record data
+       parameters: 
+         - in: path
+           name: val
+           required : true
+           schema:
+            type: string
+            
+            
+            title: Enter the string id
+            
+             
+         
+         
+       requestBody:
+         description: body
+         required: true
+         content:
+           application/json:
+             schema:
+               type: object
+       responses:
+         '200':
+           description: ok.
+         '404':
+          description: not found
+   /{id}:
+     delete:
+       summary: remove the record by id
+       parameters: 
+         - in: path
+           name: id
+           required: true
+           schema:
+              type: string
+       responses:
+         '200':
+           description: deletd.
+         '404':
+           description: not found.
+         '500':
+           description: unchecked eror.
+   
+   /add:
+     post:
+       summary: To add the record.
+       requestBody:
+        description: Optional description in *Markdown*
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+       responses:
+        '201':
+          description: Created
+        '500':
+          description: Internal error
+              
+               
+             
+       
+           
+           
+   /list/{id}:
+     get:
+       summary: return single list
+       description: return the single record
+       parameters: 
+         - in: path
+           name: id
+           required: true
+           schema:
+              type: string
+              
+           
+       responses:
+        '200':
+          description: record data
+          content:
+           application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                  
+        '404':
+          description: chek with the url
+        default:
+          description: unexpected error
+                
+          
+         

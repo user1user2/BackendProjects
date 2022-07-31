@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "cust.data.employee.user",
+    "type": "java.lang.String",
+    "description": "A description for 'cust.data.employee.user'"
+  },
+  {
+    "name": "cust.data.employee.pass",
+    "type": "java.lang.String",
+    "description": "A description for 'cust.data.employee.pass'"
+  },
+  {
+    "name": "api.username",
+    "type": "java.lang.String",
+    "description": "A description for 'api.username'"
+  },
+  {
+    "name": "api.password",
+    "type": "java.lang.String",
+    "description": "A description for 'api.password'"
+  }
+]}
